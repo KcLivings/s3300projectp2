@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-black">
   <div class="container-fluid">
-    <%= link_to 'NAMEOFWEBSITE', items_path, class: "homelink" %>
+    <%= link_to 'NAMEOFWEBSITE', items_path, class:"homelink navbar-brand" %>
     
     <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
       Account
@@ -30,8 +30,20 @@
   <tbody>
     <% @items.each do |item| %>
 
-      
+      <div class="container-sm border p-3 bg-dark text-white">
+        <img class="rounded" src="s3300projectp2/app/assets/images/8357047_R_Z001A.jpg" alt="mouseimage"> 
+        <h2> <%= item.title %> </h2>
+        <p> <%= item.description %> </p>
+        <p> <%= item.brand %> </p>
+        <p> <%= item.mousestyle %> </p>
+        <p> <%= item.price %> </p>
+        
+        
+        <%= link_to 'Show', item %>
+        <%= link_to 'Edit', edit_item_path(item) %>
+      </div>
 
+      <!--
       <tr>
         <td><%= item.title %></td>
         <td><%= item.description %></td>
@@ -40,7 +52,7 @@
         <td><%= item.mousestyle %></td>
         <td><%= link_to 'Show', item %></td>
         <td><%= link_to 'Edit', edit_item_path(item) %></td>
-      </tr>
+      </tr> -->
     <% end %>
   </tbody>
 </table>
