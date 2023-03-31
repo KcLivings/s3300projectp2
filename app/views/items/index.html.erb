@@ -3,60 +3,73 @@
   <div class="container-fluid">
     <%= link_to 'NAMEOFWEBSITE', items_path, class:"homelink navbar-brand" %>
     
-    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <ul class="navbar-nav">
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">
+          Price
+        </a>
+        <ul class="dropdown-menu">
+          <% @items.each do |item| %>
+            <li><a class="dropdown-item" href="#"> <%= item.price %> </a></li>
+          <% end %>
+        </ul>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">
+          Brand
+        </a>
+        <ul class="dropdown-menu">
+          <% @items.each do |item| %>
+            <li><a class="dropdown-item" href="#"> <%= item.brand %> </a></li>
+          <% end %>
+        </ul>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">
+          Style
+        </a>
+        <ul class="dropdown-menu">
+          <% @items.each do |item| %>
+            <li><a class="dropdown-item" href="#"> <%= item.mousestyle %> </a></li>
+          <% end %>
+        </ul>
+      </li>
+    </ul>
+
+    
+    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownaccount" role="button" data-bs-toggle="dropdown" aria-expanded="false">
       Account
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownaccount">
       <li><a class="dropdown-item" href="#">Login</a></li>
       <li><a class="dropdown-item" href="#">Sign Up</a></li>
+      <li><%= link_to 'New Item', new_item_path, class:"dropdown-item" %> </li>
     </ul>
   </div>
 </nav>
 
 <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Brand</th>
-      <th>Mousestyle</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @items.each do |item| %>
+<% @items.each do |item| %>
 
-      <div class="container-sm border p-3 bg-dark text-white">
-        <img class="rounded" src="s3300projectp2/app/assets/images/8357047_R_Z001A.jpg" alt="mouseimage"> 
-        <h2> <%= item.title %> </h2>
-        <p> <%= item.description %> </p>
-        <p> <%= item.brand %> </p>
-        <p> <%= item.mousestyle %> </p>
-        <p> <%= item.price %> </p>
+  <div class="container-sm border p-3 bg-dark text-white">
+    <img class="rounded" src="s3300projectp2/app/assets/images/8357047_R_Z001A.jpg" alt="mouseimage"> 
+    <h2> <%= item.title %> </h2>
+    <p> <%= item.description %> </p>
+    <p> <%= item.brand %> </p>
+    <p> <%= item.mousestyle %> </p>
+    <p> $<%= item.price %> </p>
         
         
-        <%= link_to 'Show', item %>
-        <%= link_to 'Edit', edit_item_path(item) %>
-      </div>
+    <%= link_to 'Show', item %>
+    <%= link_to 'Edit', edit_item_path(item) %>
+  </div>
 
-      <!--
-      <tr>
-        <td><%= item.title %></td>
-        <td><%= item.description %></td>
-        <td><%= item.price %></td>
-        <td><%= item.brand %></td>
-        <td><%= item.mousestyle %></td>
-        <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-      </tr> -->
-    <% end %>
-  </tbody>
-</table>
+<% end %>
+
 
 <br>
-
-<%= link_to 'New Item', new_item_path %>
