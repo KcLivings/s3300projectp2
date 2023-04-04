@@ -17,7 +17,9 @@
     <h1>
       <div class="form-group">
         <label for="nameInput">Name of Item: </label>
-        <%= form.text_field :title %>
+        <div>
+          <%= form.text_field :title %>
+        </div>
         <!-- <input class="form-control form-control-lg" id="nameInput" placeholder="Enter New Name"> <%= form.text_field :mousestyle %> </input>
         -->
         </div>
@@ -27,23 +29,26 @@
   <div class="container-fluid p-5 bg-white text-black text-left">
     <div class="form-group">
       <label for="imageInput">Input Images: </label>
-      <input type="file" class="form-control-file" id="imageInput">
+      <div>
+        <input type="file" class="form-control-file" id="imageInput">
+      </div>
     </div>
   </div>
 
   <div class="container-fluid p-5 bg-white text-black text-left border">
     <div class="form-group">
       <label for="descriptionInput">Item description: </label>
+      <!-- <%= form.text_area :description %> -->
       <textarea class="form-control" id="descriptionInput" rows="3" placeholder="Enter Description"></textarea>
     </div>
   </div>
 
-  <div class="container-fluid p-1 bg-white text-black text-left form-group">
+  <div class="container-fluid p-1 ps-5 bg-white text-black text-left form-group">
     <label>Price: </label>
     <input class="form-control" placeholder="$00.00">
   </div>
 
-  <div class="container-fluid p-1 bg-white text-black text-left form-group">
+  <div class="container-fluid p-1 ps-5 bg-white text-black text-left form-group">
     <label>Brand: </label>
     <select class="form-control">
       <option>--</option>
@@ -55,18 +60,14 @@
     </select>
   </div>
 
-  <div class="container-fluid p-1 bg-white text-black text-left form-group field">
+  <div class="container-fluid p-1 ps-5 bg-white text-black text-left form-group field">
     <label>Mousestyle: </label>
-    <input class="form-control" placeholder="Enter Mousestyle">
-    <%= form.text_field :mousestyle %>
+    <div>
+      <%= form.text_field :mousestyle %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :mousestyle %>
-    <%= form.text_field :mousestyle %>
-  </div>
-
-  <div class="actions">
+  <div class="actions p-5">
     <%= form.submit %>
   </div>
 <% end %>
