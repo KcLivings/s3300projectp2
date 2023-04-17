@@ -1,0 +1,88 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-black ">
+  <div class="container-fluid">
+    <%= link_to 'NAMEOFWEBSITE', items_path, class:"homelink navbar-brand" %>
+    
+    <ul class="navbar-nav justify-content-center ms-5">
+
+      <li class="nav-item dropdown me-5 ms-5">
+        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">
+          Price
+        </a>
+        <ul class="dropdown-menu">
+          <% @items.each do |item| %>
+            <li><a class="dropdown-item" href="#"> <%= item.price %> </a></li>
+          <% end %>
+        </ul>
+      </li>
+
+      <li class="nav-item dropdown me-5">
+        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">
+          Brand
+        </a>
+        <ul class="dropdown-menu">
+          <% @items.each do |item| %>
+            <li><a class="dropdown-item" href="#"> <%= item.brand %> </a></li>
+          <% end %>
+        </ul>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">
+          Style
+        </a>
+        <ul class="dropdown-menu">
+          <% @items.each do |item| %>
+            <li><a class="dropdown-item" href="#"> <%= item.mousestyle %> </a></li>
+          <% end %>
+        </ul>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav justify-content-end">
+      
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-light" type="submit">Search</button>
+      </form>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownaccount" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Account
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownaccount">
+          <li><a class="dropdown-item" href="#">Login</a></li>
+          <li><a class="dropdown-item" href="#">Sign Up</a></li>
+          <li><%= link_to 'New Item', new_item_path, class:"dropdown-item" %> </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <% @items.each do |item| %>
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <div class="card text-center p-3 bg-dark text-white btn">
+        
+        
+        <div class="card-body"> 
+          <img class="rounded card-img-top" src="s3300projectp2/app/assets/images/8357047_R_Z001A.jpg" alt="mouseimage"> 
+          <h2 class="card-title"> <%= item.title %> </h2>
+          <p> <%= item.description %> </p>
+          <p> Brand: <%= item.brand %> </p>
+          <p> Mouse style: <%= item.mousestyle %> </p>
+          <p> $<%= item.price %> </p>
+              
+          
+          <%= link_to 'Show', item, class: "homelink" %>
+        </div>
+      </div>
+    </div>
+
+  <% end %>
+</div>
+
+<br>
