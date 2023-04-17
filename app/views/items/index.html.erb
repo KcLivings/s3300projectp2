@@ -51,9 +51,14 @@
           Account
         </a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownaccount">
-          <li><a class="dropdown-item" href="#">Login</a></li>
-          <li><a class="dropdown-item" href="#">Sign Up</a></li>
-          <li><%= link_to 'New Item', new_item_path, class:"dropdown-item" %> </li>
+          <% if user_signed_in? %>
+            <li><%= link_to 'Edit profile', edit_user_registration_path%> </li>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete%> </li>
+            <li><%= link_to 'New Item', new_item_path, class:"dropdown-item" %> </li>
+          <% else %>
+            <li><a class="dropdown-item" href="#"><%= link_to "Login", new_user_session_path%></a> </li>
+            <li><a class="dropdown-item" href="#"><%= link_to "Sign up", new_user_registration_path%></a> </li>
+          <% end %>
         </ul>
       </li>
     </ul>
