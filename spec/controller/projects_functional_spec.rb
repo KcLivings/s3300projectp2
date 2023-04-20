@@ -1,4 +1,12 @@
+require 'rails_helper'
+
 RSpec.describe "/items", type: :request do
+
+  before(:each) do
+    user = FactoryBot.create(:user)
+    login_as(user)
+  end
+
     let(:valid_attributes) {
         {
             title: 'a title',
