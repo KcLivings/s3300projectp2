@@ -1,25 +1,47 @@
-<h2>Change your password</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
-
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+<nav class="navbar navbar-expand-lg navbar-dark bg-black">
+  <div class="container-fluid">
+    <%= link_to 'NAMEOFWEBSITE', items_path, class: "homelink navbar-brand" %>
+    
+    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Account
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+      <% if user_signed_in? %>
+        <li><%= link_to 'Edit profile', edit_user_registration_path, class:"dropdown-item" %> </li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class:"dropdown-item" %> </li>
+        <li><%= link_to 'New Item', new_item_path, class:"dropdown-item" %> </li>
+      <% else %>
+        <li><%= link_to "Login", new_user_session_path, class:"dropdown-item" %> </li>
+        <li><%= link_to "Sign up", new_user_registration_path, class:"dropdown-item" %> </li>
+      <% end %>
+    </ul>
   </div>
+</nav>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+<div class="container border text-center p-5 bg-dark text-white ">
+  <h2>Change your password</h2>
 
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
+    <%= f.hidden_field :reset_password_token %>
 
-<%= render "users/shared/links" %>
+    <div class="field">
+      <%= f.label :password, "New password" %><br />
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+      <% end %>
+      <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation, "Confirm new password" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Change my password" %>
+    </div>
+  <% end %>
+
+  <%= render "users/shared/links" %>
+</div>

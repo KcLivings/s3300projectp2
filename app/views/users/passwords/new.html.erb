@@ -1,16 +1,38 @@
-<h2>Forgot your password?</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<nav class="navbar navbar-expand-lg navbar-dark bg-black">
+  <div class="container-fluid">
+    <%= link_to 'NAMEOFWEBSITE', items_path, class: "homelink navbar-brand" %>
+    
+    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Account
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+      <% if user_signed_in? %>
+        <li><%= link_to 'Edit profile', edit_user_registration_path, class:"dropdown-item" %> </li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class:"dropdown-item" %> </li>
+        <li><%= link_to 'New Item', new_item_path, class:"dropdown-item" %> </li>
+      <% else %>
+        <li><%= link_to "Login", new_user_session_path, class:"dropdown-item" %> </li>
+        <li><%= link_to "Sign up", new_user_registration_path, class:"dropdown-item" %> </li>
+      <% end %>
+    </ul>
   </div>
+</nav>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
+<div class="container border text-center p-5 bg-dark text-white ">
+  <h2>Forgot your password?</h2>
 
-<%= render "users/shared/links" %>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Send me reset password instructions" %>
+    </div>
+  <% end %>
+
+  <%= render "users/shared/links" %>
+</div>
