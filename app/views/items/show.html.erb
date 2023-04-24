@@ -27,12 +27,8 @@
 </div>
 
 <% if @item.displayimage.attached? %>
-  <div class="container">
-    <% @item.displayimage.each do |item| %>
-      <img class="rounded" src="<%= (url_for(@item.displayimage)) %>" alt="mouseimage"> 
-    <% end %>
-  </div>
-<%end %>
+  <img class="rounded img-thumbnail mx-auto d-block" src="<%= (url_for(@item.displayimage)) %>" alt="mouseimage"> 
+<% end %>
 
 <div class="container-fluid p-5 bg-white text-black text-center border">
   <h4>
@@ -67,5 +63,5 @@
   <% if user_signed_in? %>
     <button type="button" class="btn btn-outline-dark"> <%= link_to 'Edit', edit_item_path(@item) , class:"showlink" %> </button> |
   <% end %>
-  <button type="button" class="btn btn-outline-dark"> <%= link_to 'Back', items_path , class:"noUnderline" %> </button>
+  <button type="button" class="btn btn-outline-dark"> <%= link_to 'Back', items_path , class:"showlink" %> </button>
 </div>

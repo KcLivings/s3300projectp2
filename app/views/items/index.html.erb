@@ -65,16 +65,16 @@
   </div>
 </nav>
 
-<p id="notice"><%= notice %></p>
-
-<div class="row">
+<div class="row px-3">
   <% @items.each do |item| %>
-    <div class="col-lg-4 col-md-6 col-sm-12">
+    <div class="col-lg-4 col-md-6 col-sm-12 pt-4">
       <div class="card text-center p-3 bg-dark text-white btn">
         
         
-        <div class="card-body"> 
-          <img class="rounded card-img-top" src="s3300projectp2/app/assets/images/8357047_R_Z001A.jpg" alt="mouseimage"> 
+        <div class="card-body pt-3"> 
+          <% if item.displayimage.attached? %>
+            <img class="rounded img-thumbnail" src="<%= (url_for(item.displayimage)) %>" alt="mouseimage"> 
+          <% end %>
           <h2 class="card-title"> <%= item.title %> </h2>
           <p> <%= item.description %> </p>
           <p> Brand: <%= item.brand %> </p>
@@ -82,7 +82,7 @@
           <p> $<%= item.price %> </p>
               
           
-          <%= link_to 'Show', item, class: "homelink" %>
+          <button type="button" class="btn-light btn-outline-dark"> <%= link_to 'Show', item, class:"noUnderline" %> </button>
         </div>
       </div>
     </div>

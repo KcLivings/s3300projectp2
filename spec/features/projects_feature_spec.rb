@@ -4,9 +4,9 @@ RSpec.feature "Items", type: :feature do
     context "Update item" do
         let(:item) { Item.create(title: "Title", description: "Content of the description", price: 12.34, brand: "ASUS", mousestyle: "ergonomic") }
         before(:each) do
-            user = FactoryBot.create(:user)
-            login_as(user)
-            visit edit_item_path(item)
+            #user = FactoryBot.create(:user)
+            #login_as(user)
+            visit edit_item_url(item)
         end
 
         scenario "should be successful" do
@@ -18,7 +18,7 @@ RSpec.feature "Items", type: :feature do
         end
         scenario "descrypt should fail" do
             within("form") do
-                fill_in "Description", with: ""
+                fill_in "description", with: ""
             end
             click_button "Update Item"
             expect(page).to have_content("Description can't be blank")
