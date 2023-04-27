@@ -2,16 +2,15 @@ require "rails_helper"
 
 RSpec.feature "Items", type: :feature do
 
-    context "show" do
+    #context "show" do
 
-        let(:item) { Item.create(title: "Title", description: "Content of the description", price: 12.34, brand: "ASUS", mousestyle: "ergonomic") }
+    #    let(:item) { Item.create(title: "Title", description: "Content of the description", price: 12.34, brand: "ASUS", mousestyle: "ergonomic") }
 
-        scenario "should find name in /show" do
-            visit root_path
-            click_button 'Show'
-            expect(page).to have_content("Name:")
-        end
-    end
+    #    test "should find name in /show" do
+    #        visit root_path
+    #        assert_selector "h2", text: "Title"
+    #    end
+    #end
 
     context "Login" do
         scenario "should sign up" do

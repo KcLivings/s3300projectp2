@@ -1,95 +1,6 @@
 {
   "RSpec": {
     "coverage": {
-      "/root/s3300projectp2/app/models/item.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/root/s3300projectp2/app/controllers/items_controller.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          5,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          1,
-          3,
-          null,
-          3,
-          3,
-          4,
-          2,
-          null,
-          2,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          2,
-          2,
-          4,
-          2,
-          null,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          2,
-          null,
-          2,
-          4,
-          2,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          8,
-          null,
-          null,
-          null,
-          1,
-          5,
-          null,
-          null
-        ]
-      },
-      "/root/s3300projectp2/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
       "/root/s3300projectp2/app/channels/application_cable/channel.rb": {
         "lines": [
           0,
@@ -102,6 +13,91 @@
       },
       "/root/s3300projectp2/app/channels/application_cable/connection.rb": {
         "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/root/s3300projectp2/app/controllers/application_controller.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/root/s3300projectp2/app/controllers/items_controller.rb": {
+        "lines": [
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
           0,
           0,
           0,
@@ -158,6 +154,16 @@
         "branches": {
         }
       },
+      "/root/s3300projectp2/app/models/item.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
       "/root/s3300projectp2/app/models/user.rb": {
         "lines": [
           0,
@@ -171,6 +177,6 @@
         }
       }
     },
-    "timestamp": 1682436820
+    "timestamp": 1682612158
   }
 }
